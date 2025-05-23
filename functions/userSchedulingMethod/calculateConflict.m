@@ -20,7 +20,7 @@ function currentConflict = calculateConflict(params,res)
         counts = accumarray(beamVectorBeam(:),1);
         repeatedCounts = counts(counts > 1);
         if ~isempty(repeatedCounts)
-            currentConflict = currentConflict + repeatedCounts - length(repeatedCounts);
+            currentConflict = currentConflict + sum(repeatedCounts) - length(repeatedCounts);
         end
     end
 end

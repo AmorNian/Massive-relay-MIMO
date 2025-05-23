@@ -23,7 +23,6 @@ userSchedulingMethod = @simulatedAnnealingUserScheduling;
 otherparamsUS = [6,6,6];
 params = userScheduling(userSchedulingMethod, params, otherparamsUS);
 
-
 resourceAllocationMethod = @randomResourceAllocation;
 RApattern = {[2,2,2],[2,2,2],[2,2,2]};
 otherParamsRA = {RApattern,"SA"};
@@ -36,3 +35,5 @@ params = relaySelection(relaySelectionMethod, params, otherParamsRS);
 params = calculateCapacity(params,"random");
 %close(viewer)
 toc
+disp("sum:")
+disp(sum(params.capacity.channelCapacity))

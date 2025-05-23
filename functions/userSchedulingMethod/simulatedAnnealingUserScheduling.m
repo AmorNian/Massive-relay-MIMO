@@ -3,8 +3,8 @@ function params = simulatedAnnealingUserScheduling(params, pattern)
         error("pattern isn't matching UE number")
     end
     params.userScheduling.SA = struct();
-    params.userScheduling.SA.initialTemperature = 300000;
-    params.userScheduling.SA.coolingRate = 0.999;
+    params.userScheduling.SA.initialTemperature = 500000;
+    params.userScheduling.SA.coolingRate = 0.999999;
     params.userScheduling.SA.maxIteration = 20000;
     params.userScheduling.SA.minTemperature = 0;
     params.userScheduling.SA.maxPerturbSize = 0.5 * params.infra.UE.number - 1;
@@ -28,6 +28,7 @@ function params = simulatedAnnealingUserScheduling(params, pattern)
     iter = params.userScheduling.SA.initialTemperature;
     while iter > 0 && temperature > params.userScheduling.SA.minTemperature
         perturbSize = params.userScheduling.SA.maxPerturbSize * (temperature/params.userScheduling.SA.initialTemperature);
+        perturbSize = ceil(perturbSize);
         newRes = bestRes;
         for p = 1:perturbSize
             group1 = randi(groupNumber);
