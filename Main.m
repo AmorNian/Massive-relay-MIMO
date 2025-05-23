@@ -34,5 +34,5 @@ otherParamsRS = {"resourceAllocation","random"};
 params = relaySelection(relaySelectionMethod, params, otherParamsRS);
 % checkBeamConflict(params)
 params = calculateCapacity(params,"random");
-close(viewer)
+%close(viewer)
 toc
