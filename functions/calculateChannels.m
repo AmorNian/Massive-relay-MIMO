@@ -44,5 +44,6 @@ function params = calculateChannels(params,newset)
         % params.channel.RU = channelsRUall(:,params.infra.UE.originalIndex);
         save(params.file.channels,"channelsBR","channelsBUall")
         save(params.file.channelsAll,"channelsBR","channelsBUall","channelsRUall",'-v7.3')
+        disp("channel calculation done!")
     end
 end

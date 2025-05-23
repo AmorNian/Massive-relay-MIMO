@@ -64,4 +64,5 @@ function params = getBeamScan(params,newset)
         params.beamScan.RUTx = RUallTx(:,params.infra.UE.originalIndex);
         params.beamScan.RURx = RUallRx(:,params.infra.UE.originalIndex);
         save(params.file.beamScan,"BRTx","BRRx","BUallTx","BUallRx","RUallTx","RUallRx");
+        disp("beam scan done!")
 end

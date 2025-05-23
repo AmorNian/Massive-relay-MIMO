@@ -32,5 +32,6 @@ function params = getRaytracing(params,newset)
         raysBUall = params.rays.BUcandidate;
         raysRUall = params.rays.RUcandidate;
         save(params.file.rays,"raysRUall","raysBUall","raysBR")
+        disp("raytracing done!")
     end
 end

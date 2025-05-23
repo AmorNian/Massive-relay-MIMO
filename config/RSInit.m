@@ -1,5 +1,6 @@
 RSFile = "RSInitShinjuku.mat";
 mapFile = "Shinjuku.osm";
+%load("config\RSInitShinjuku.mat")
 bslat = 35.688842;
 bslon = 139.726793;
 % rslat = [];
@@ -38,3 +39,4 @@ for i = 1:RS_NUM
         end
     end
 end
+save("config\RSInitShinjuku.mat","rslat","rslon")
