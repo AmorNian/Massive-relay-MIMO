@@ -17,6 +17,9 @@ function params = computeBDPrecoding(params,otherParamsRS)
             Vnull = V(:, end-null_dim+1:end);
     
             Hk = Heff{user};
+            if length(subUserGroups{group}) == 1
+                Vnull = eye(size(Hk,2));
+            end
             Hk_eff = Hk * Vnull;
             [~,~,Vk] = svd(Hk_eff);
             d_k = size(Hk,1);

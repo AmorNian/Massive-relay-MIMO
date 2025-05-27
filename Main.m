@@ -19,20 +19,30 @@ params = getBeamScan(params,newset);
 % otherparamsUS = [6,6,6];
 % params = userScheduling(userSchedulingMethod, params, otherparamsUS);
 
-userSchedulingMethod = @simulatedAnnealingUserScheduling;
-otherparamsUS = [6,6,6];
+% userSchedulingMethod = @simulatedAnnealingUserScheduling;
+% otherparamsUS = [6,6,6];
+% params = userScheduling(userSchedulingMethod, params, otherparamsUS);
+% 
+% resourceAllocationMethod = @randomResourceAllocation;
+% RApattern = {[2,2,2],[2,2,2],[2,2,2]};
+% otherParamsRA = {RApattern,"SA"};
+% params = resourceAllocation(resourceAllocationMethod, params, otherParamsRA);
+
+% userSchedulingMethod = @maxMinUserScheduling;
+% ifRL = true;
+% otherparamsUS = {[6,6,6], ifRL};
+% params = userScheduling(userSchedulingMethod, params, otherparamsUS);
+
+userSchedulingMethod = @singleUserScheduling;
+ifRL = true;
+otherparamsUS = ifRL;
 params = userScheduling(userSchedulingMethod, params, otherparamsUS);
 
-resourceAllocationMethod = @randomResourceAllocation;
-RApattern = {[2,2,2],[2,2,2],[2,2,2]};
-otherParamsRA = {RApattern,"SA"};
-params = resourceAllocation(resourceAllocationMethod, params, otherParamsRA);
-
 relaySelectionMethod = @LoSRSBasedRelaySelection;
-otherParamsRS = {"resourceAllocation","random"};
+otherParamsRS = {"resourceAllocation","single"};
 params = relaySelection(relaySelectionMethod, params, otherParamsRS);
 % checkBeamConflict(params)
-params = calculateCapacity(params,"random");
+params = calculateCapacity(params,"single");
 %close(viewer)
 toc
 disp("sum:")
